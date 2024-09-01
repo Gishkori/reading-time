@@ -20,3 +20,21 @@ if (article) {
 
   (date ?? heading).insertAdjacentElement("afterend", badge);
 }
+
+const currentURL = window.location.toString();
+
+if (currentURL.includes("youtube")) {
+  window.alert("Stop Watching Youtube");
+  setTimeout(() => {
+    console.log("Waited for 5 seconds");
+  }, 6000);
+}
+
+var currentTab = getCurrentTab();
+console.log(currentTab);
+
+async function getCurrentTab() {
+  let queryOptions = { active: true, currentTab: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
